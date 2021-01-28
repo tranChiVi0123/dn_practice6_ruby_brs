@@ -44,3 +44,4 @@ yarn-debug.log*
 .framgia-ci-result.temp.yml
 Gemfile.lock
 
+yarn.lock
