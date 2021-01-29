@@ -15,8 +15,12 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
-  validates :email, uniqueness: true, presence: true
-  validates :name, presence: true
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
+  validates :email, uniqueness: true, presence: true, length: {maximum: 255},
+                  format: {with: VALID_EMAIL_REGEX}
+  validates :name, presence: true, length: {maximum: 50}
+  has_secure_password
+  validates :password, presence: true, length: {minimum: 6}, allow_nil: true
 
   # Follows a user.
   def follow other_user

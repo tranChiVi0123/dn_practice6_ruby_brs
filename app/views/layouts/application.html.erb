@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>BookReviewSystem</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title><%= yield :title%> | <%= t(:title)%></title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
+<body>
+  <%= render "shared/header" %>
+  <div class="container">
     <%= yield %>
-  </body>
+  </div>
+  <%= render "shared/footer" %>
+</body>
+
 </html>

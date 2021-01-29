@@ -29,5 +29,13 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "Hello world"
+vi:
+  title: "Hệ thống đánh giá sách"
+  signup: "Đăng kí"
+  signin: "Đăng nhập"
+  signout: "Đăng xuất"
+  forgot_password: "Quên mật khẩu"
+  remember_me: "Lưu đăng nhập"
+  create_new_account: "Tạo tài khoản mới."
+  password: "Mật khẩu"
+  password_confirmation: "Xác nhận mật khẩu"
