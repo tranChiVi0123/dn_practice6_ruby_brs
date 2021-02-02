@@ -15,4 +15,7 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
 
   enum role: {user: 1, admin: 2}
+
+  validates :email, uniqueness: true, presence: true
+  validates :name, presence: true
 end
