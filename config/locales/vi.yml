@@ -32,3 +32,9 @@
 vi:
   title: "Hệ thống đánh giá sách"
   home: "Trang chủ"
+  signup: "Đăng kí"
+  password: "Mật khẩu"
+  password_confirmation: "Xác nhập lại mật khẩu"
+  message_successed: "Thành công"
+  message_failed: "Thất bại"
+  valid_form: "The form contains"
