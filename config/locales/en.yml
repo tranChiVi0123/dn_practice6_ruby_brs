@@ -31,4 +31,10 @@
 
 en:
   title: "Book review system"
-  home: "Trang chủ"
+  home: "Home"
+  signup: "Sign up"
+  password: "Password"
+  password_confirmation: "Password confirmation"
+  message_successed: "Success"
+  message_failed: "Failed"
+  valid_form: "The form contains"

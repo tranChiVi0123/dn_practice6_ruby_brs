@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5" role="navigation">
   <div class="container">
     <i class="fab fa-envira" style="font-size:48px;color:green"></i>
-    <a class="navbar-brand" href="#">LOL</a>
+    <a class="navbar-brand" href="/">LOL</a>
     <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
       &#9776;
     </button>
@@ -14,7 +14,7 @@
       </ul>
       <ul class="nav navbar-nav flex-row ml-auto">
         <li class="nav-item"><%= link_to t(:signin), "#", class: "nav-link" %></li>
-        <li class="nav-item"><%= link_to t(:signup), "#", class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to t(:signup), signup_path, class: "nav-link" %></li>
       </ul>
       <ul class="nav navbar-nav flex-right pl-4">
         <% if I18n.locale.to_s == "en"%>
