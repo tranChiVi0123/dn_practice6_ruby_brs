@@ -30,4 +30,5 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  title: "Hệ thống đánh giá sách"
+  title: "Book review system"
+  home: "Home"
