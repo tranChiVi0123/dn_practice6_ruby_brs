@@ -7,5 +7,8 @@ Rails.application.routes.draw do
     end
     get "home", to: "static_pages#home"
     get "signup", to: "admin/users#new"
+    get "signin", to: "sessions#new"
+    post "signin", to: "sessions#create"
+    delete "signout", to: "sessions#destroy"
   end
 end
