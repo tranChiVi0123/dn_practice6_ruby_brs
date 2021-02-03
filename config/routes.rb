@@ -4,5 +4,6 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :users
     end
+    get "home", to: "static_pages#home"
   end
 end
