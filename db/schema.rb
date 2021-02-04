@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(version: 2021_02_02_080138) do
     t.string "name"
     t.string "email"
     t.string "avatar"
-    t.integer "role", default: 1, null: false
+    t.integer "role", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"

@@ -6,6 +6,8 @@ ruby "2.7.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "rails", "~> 6.0.3", ">= 6.0.3.4"
 gem "rails-i18n"
+gem "will_paginate", "3.1.8"
+
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
 # Use Puma as the app server

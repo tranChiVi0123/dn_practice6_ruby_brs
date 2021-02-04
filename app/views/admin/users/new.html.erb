@@ -1,19 +1,9 @@
 <%= provide(:title, t(:signup))%>
+<%= provide(:type_btn, t(:signup))%>
 <div class="row justify-content-center">
   <div class="col-6">
     <div class="login-form ">
     <h2 class="text-center"><%=t(:signup)%></h2>
-    <%= form_for(@user, url:admin_users_path) do |f| %>
-        <%= render 'shared/error_messages', object: @user %>
-        <%= f.label :name %>
-        <%= f.text_field :name, class: 'form-control', required:"required" %>
-        <%= f.label :email %>
-        <%= f.email_field :email, class: 'form-control', required:"required" %>
-        <%= f.label t(:password) %>
-        <%= f.password_field :password, class: 'form-control', required:"required" %>
-        <%= f.label t(:password_confirmation) %>
-        <%= f.password_field :password_confirmation, class: 'form-control', required:"required" %>
-        <%= f.submit t(:signup), class: "btn btn-primary btn-block mt-4 mb-4" %>
-    <% end %>
+    <%= render "shared/form"%>
   </div>
 </div>
