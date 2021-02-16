@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     root "static_pages#home"
     namespace :admin do
       resources :users, except: [:new, :show]
+      resources :books
     end
     get "home", to: "static_pages#home"
     get "signup", to: "admin/users#new"

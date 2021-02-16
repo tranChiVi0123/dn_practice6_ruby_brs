@@ -20,12 +20,11 @@ Category.create!(name: "Technology")
 30.times do |n|
   title = "Book #{n}"
   description = "Description #{n}"
-  image = "app/asset/img/img-#{n}"
-  published_time = "23/1//1998"
+  published_time = Date.new(2008, 1, 23)
   page_num = 10
   author = "Author#{n}"
   category_id = 1
-  Book.create!(title: title, description: description, image: image,
+  Book.create!(title: title, description: description,
     published_time: published_time, page_num: page_num,
     author: author, category_id: category_id)
 end

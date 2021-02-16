@@ -1,0 +1,9 @@
+<%= provide(:title, t(:create_book))%>
+<%= provide(:type_btn, t(:add_book))%>
+<div class="row justify-content-center">
+  <div class="col-6">
+    <div class="login-form ">
+      <h2 class="text-center"><%=t(:add_book)%></h2>
+      <%= render "form", type: 0 %>
+    </div>
+  </div>
