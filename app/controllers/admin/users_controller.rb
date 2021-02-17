@@ -67,7 +67,6 @@ class Admin::UsersController < ApplicationController
   end
 
   def is_admin?
-    p current_user.admin?
     redirect_to root_url unless current_user.admin?
   end
 

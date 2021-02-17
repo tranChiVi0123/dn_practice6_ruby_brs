@@ -1,0 +1,9 @@
+<%=provide(:title,t(:home))%>
+<h1>News Feed</h1>
+<div id="news-feed">
+  <%= render @reviews %>
+</div>
+
+<div id="infinite-scrolling" class="mb-5 pb-5">
+  <%= will_paginate @reviews%>
+</div>

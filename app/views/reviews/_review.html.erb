@@ -1,0 +1,18 @@
+<div>
+  <div class="card mb-3">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="/default_book.png" class="card-img" alt="book review">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h2 class="card-title"><%= link_to review.review_title, "#" %></h2>
+          <h4>Books: <%= review.book.title %></h4>
+          <p class="card-text"><%= review.review_content.slice(0, 200) %> ...</p>
+          <p class="card-text"><small class="text-muted">Reviewer: <%=link_to review.user.name, "#"%></small></p>
+          <p class="card-text"><small class="text-muted">Updated at <%= review.updated_at %></small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
