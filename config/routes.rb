@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :books
     end
     resources :reviews, except: [:index]
+    resources :books
     post "comment", to: "reviews#comment"
     post "reply", to: "reviews#reply"
     get "signup", to: "admin/users#new"

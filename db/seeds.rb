@@ -52,7 +52,7 @@ end
 Comment.all.length.times do |n|
   t = rand(0..3)
   t.times do |_m|
-    u = rand(1..30
+    u = rand(1..30)
     Reply.create!(user_id: u, comment_id: n + 1,
         reply_content: Faker::Quote.singular_siegler)
   end

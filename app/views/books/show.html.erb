@@ -1,0 +1,58 @@
+<% provide(:title, t(:detail_book))%>
+
+<div class="row mb-5">
+  <div class="col-lg-8">
+
+    <!-- Title -->
+    <h1 class="mt-4"><%= @book.title %></h1>
+
+    <!-- Author -->
+    <p class="lead">
+      by
+      <%=link_to @book.author%>
+    </p>
+
+    <hr>
+
+    <!-- Date/Time -->
+    <p>Posted on <%= @book.created_at%></p>
+
+    <hr>
+
+    <!-- Preview Image -->
+    <img class="img-fluid rounded" src="/default_book.png" style="max-height: 600px; max-width: 600px;" alt="">
+
+    <hr>
+
+    <!-- Post Content -->
+    <p><%= @book.description %></p>
+  </div>
+  <!-- Sidebar Widgets Column -->
+  <div class="col-md-4">
+    <!-- Categories Widget -->
+    <div class="card my-4">
+      <h5 class="card-header">Categories</h5>
+      <div class="card-body">
+        <div class="row">
+          <% @categories.each do |category|%>
+          <div class="col-lg-4">
+            <%= link_to category.name, "#" %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Side Widget -->
+    <div class="card my-4">
+      <h5 class="card-header">Action</h5>
+      <div class="card-body">
+        <p>Rating</p>
+        <p>Like</p>
+        <p><%= link_to "Write Review", new_review_path(book_id: @book.id)%></p>
+      </div>
+    </div>
+    <div id="notifications">
+    </div>
+  </div>
+</div>

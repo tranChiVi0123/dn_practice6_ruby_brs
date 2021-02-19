@@ -1,0 +1,12 @@
+<%= form_for(@review, url: type==0 ? :reviews : :review) do |f| %>
+  <%= render 'shared/error_messages', object: @review %>
+  <%= f.label t(:review_title) %>
+  <%= f.text_field :review_title, class: 'form-control mb-4', required:"required" %>
+  <%= f.label t(:book) %>
+  <%= f.select :book_id, options_for_select(@books), class:'form-control mb-2', required:"required" %>
+  <br/>
+  <br/>
+  <%= f.label t(:review_content) %>
+  <%= f.text_area :review_content, class: 'form-control mb-4', required:"required", rows:"10" %>
+  <%= f.submit yield(:type_btn), class: "btn btn-primary btn-block mt-4 mb-4" %>
+<% end %>
