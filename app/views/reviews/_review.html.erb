@@ -6,7 +6,7 @@
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h2 class="card-title"><%= link_to review.review_title, "#" %></h2>
+          <h2 class="card-title"><%= link_to review.review_title, review_path(id: review.id) %></h2>
           <h4>Books: <%= review.book.title %></h4>
           <p class="card-text"><%= review.review_content.slice(0, 200) %> ...</p>
           <p class="card-text"><small class="text-muted">Reviewer: <%=link_to review.user.name, "#"%></small></p>

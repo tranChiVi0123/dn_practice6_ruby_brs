@@ -39,6 +39,24 @@ end
                 review_content: Faker::Lorem.paragraph(sentence_count: 10,
                    supplemental: false, random_sentences_to_add: 20))
 end
+
+100.times do |n|
+  t = rand(0..10)
+  t.times do |_m|
+    u = rand(1..30)
+    Comment.create!(user_id: u, review_id: n + 1,
+          comment_content: Faker::Quote.robin)
+  end
+end
+
+Comment.all.length.times do |n|
+  t = rand(0..3)
+  t.times do |_m|
+    u = rand(1..30
+    Reply.create!(user_id: u, comment_id: n + 1,
+        reply_content: Faker::Quote.singular_siegler)
+  end
+end
 # 100.times do |_n|
 #   UserBook.create!(user_id: 1, book_id: 1, status: 1, rating_point: 9.5)
 # end

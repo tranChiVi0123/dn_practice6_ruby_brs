@@ -1,0 +1,120 @@
+<% provide(:title, t(:detail_review))%>
+
+<!-- Page Content -->
+<div class="row mb-5">
+  <!-- Post Content Column -->
+  <div class="col-lg-8">
+
+    <!-- Title -->
+    <h1 class="mt-4"><%= @review.review_title %></h1>
+
+    <!-- Author -->
+    <p class="lead">
+      by
+      <%=link_to @review.user.name%>
+    </p>
+
+    <h2>Book's Name: <%= link_to @review.book.title, "#" %></h2>
+
+    <hr>
+
+    <!-- Date/Time -->
+    <p>Posted on <%= @review.created_at%></p>
+
+    <hr>
+
+    <!-- Preview Image -->
+    <img class="img-fluid rounded" src="/default_book.png" style="max-height: 600px; max-width: 600px;" alt="">
+
+    <hr>
+
+    <!-- Post Content -->
+    <p><%= @review.review_content %></p>
+
+    <hr>
+
+    <!-- Comments Form -->
+    <div class="card my-4">
+      <h5 class="card-header">Leave a Comment:</h5>
+      <div class="card-body">
+        <form>
+          <input type="hidden" id="reviewId" value="<%= @review.id %>">
+          <div class="form-group">
+            <textarea class="form-control" id="txt_comment_content" rows="3"></textarea>
+          </div>
+          <button type="button" class="btn btn-primary" id="btn_submit_cmt">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div id="comments-box">
+      <% @review.comments.order(created_at: :desc).each do  |comment|%>
+      <!-- Single Comment -->
+      <div class="media mb-4">
+        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+        <div class="media-body" id="cmt-<%=comment.id%>">
+          <div class="row">
+            <div class="col-8 d-flex">
+              <h5 class="mt-0"><%= link_to comment.user.name%></h5>
+            </div>
+            <div class="col-4">
+              <a class="text-primary btn-reply" style="cursor:pointer;" id="<%= comment.id %>" name="btn-reply-<%= comment.id %>">
+                <i class="fas fa-reply"></i>
+                <%= t(:reply) %>
+              </a>
+            </div>
+          </div>
+          <p><%= comment.comment_content%></p>
+          <div id="reply-list-<%=comment.id%>">
+            <% comment.replies.order(created_at: :asc).each do |reply|%>
+            <div class="media mt-4">
+              <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+              <div class="media-body">
+                <h5 class="mt-0"><%= link_to reply.user.name, "#" %></h5>
+                <p><%= reply.reply_content %></p>
+              </div>
+            </div>
+            <% end %>
+          </div>
+          <div class="card-body reply-box" id="<%=comment.id%>" name="reply-box-<%=comment.id%>" style="display: none;">
+            <form>
+              <input type="hidden" id="reviewId" value="<%= @review.id %>">
+              <div class="form-group">
+                <textarea class="form-control" id="<%=comment.id%>" name="txt-reply-content-<%=comment.id%>" rows="3"></textarea>
+              </div>
+              <button type="button" class="btn btn-primary btn-submit-reply" id="<%=comment.id%>" name="btn-submit-reply-<%=comment.id%>">Submit</button>
+              <button type="button" class="btn btn-danger btn-cancel-reply" id="<%=comment.id%>" name="btn-cancel-reply-<%=comment.id%>">Cancel</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <!-- Sidebar Widgets Column -->
+  <div class="col-md-4">
+    <!-- Categories Widget -->
+    <div class="card my-4">
+      <h5 class="card-header">Categories</h5>
+      <div class="card-body">
+        <div class="row">
+          <% @categories.each do |category|%>
+          <div class="col-lg-4">
+            <%= link_to category.name, "#" %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Side Widget -->
+    <div class="card my-4">
+      <h5 class="card-header">Side Widget</h5>
+      <div class="card-body">
+        You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+      </div>
+    </div>
+    <div id="notifications">
+    </div>
+  </div>
+</div>
+<!-- /.row -->

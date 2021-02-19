@@ -12,6 +12,7 @@ require("channels")
 
 require("./modal")
 require("./scroll")
+require("./comment")
 import $ from 'jquery';
 global.$ = jQuery;
 
