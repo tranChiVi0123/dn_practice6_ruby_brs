@@ -77,3 +77,8 @@ vi:
   add_review: "Tạo mới đánh giá"
   edit_review: "Chỉnh sử đánh giá"
   update_review: "Cập nhật đánh giá"
+  all_user: "Tất cả người viết"
+  unfollow: "Hủy theo dõi"
+  follow: "Theo dõi"
+  following: "Đang theo dõi"
+  follower: "Người theo dõi"

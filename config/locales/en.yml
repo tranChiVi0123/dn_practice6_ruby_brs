@@ -77,3 +77,8 @@ en:
   add_review: "Add Review"
   edit_review: "Edit review"
   update_review: "Update review"
+  all_user: "All user"
+  unfollow: "Unfollow"
+  follow: "Follow"
+  following: "Following"
+  follower: "Follower"

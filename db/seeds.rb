@@ -4,7 +4,7 @@ User.create!(name: "Admin",
             role: 1,
             password: "012398",
             password_confirmation: "012398")
-30.times do |n|
+100.times do |n|
   name = Faker::Name.name
   email = "user#{n}@example.com"
   role = 0
@@ -19,9 +19,9 @@ Category.create!(name: "Technology")
 Category.create!(name: "Managa")
 Category.create!(name: "Finacial")
 Category.create!(name: "Histoty")
-Category.create!(name: "News")
+Category.create!(name: "Other")
 
-100.times do |_n|
+200.times do |_n|
   title = Faker::Book.title
   description = Faker::Lorem.paragraph
   published_time = Faker::Date.between(from: "1900-01-01", to: "2010-12-31")
@@ -33,17 +33,17 @@ Category.create!(name: "News")
     author: author, category_id: category_id)
 end
 
-100.times do |n|
-  Review.create!(user_id: rand(1..30), book_id: n + 1,
+200.times do |n|
+  Review.create!(user_id: rand(1..100), book_id: n + 1,
                 review_title: Faker::Lorem.sentence,
                 review_content: Faker::Lorem.paragraph(sentence_count: 10,
                    supplemental: false, random_sentences_to_add: 20))
 end
 
-100.times do |n|
+200.times do |n|
   t = rand(0..10)
   t.times do |_m|
-    u = rand(1..30)
+    u = rand(1..100)
     Comment.create!(user_id: u, review_id: n + 1,
           comment_content: Faker::Quote.robin)
   end
@@ -52,11 +52,18 @@ end
 Comment.all.length.times do |n|
   t = rand(0..3)
   t.times do |_m|
-    u = rand(1..30)
+    u = rand(1..100)
     Reply.create!(user_id: u, comment_id: n + 1,
         reply_content: Faker::Quote.singular_siegler)
   end
 end
+
+users = User.all
+user = users.second
+following = users[2..90]
+followers = users[3..80]
+following.each{|followed| user.follow(followed)}
+followers.each{|follower| follower.follow(user)}
 # 100.times do |_n|
 #   UserBook.create!(user_id: 1, book_id: 1, status: 1, rating_point: 9.5)
 # end

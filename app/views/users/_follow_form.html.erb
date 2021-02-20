@@ -1,0 +1,12 @@
+<% unless current_user?(@user) %>
+  <div id="follow_form">
+    <input type="hidden" id="followed_id" name="followed_id" value="<%=@user.id%>">
+    <% if current_user.following?(@user) %>
+      <button type="button" class="btn btn-light w-100" id="btn-unfollow"><%=  t(:unfollow) %></button>
+      <button type="button" style="display:none;" class="btn btn-primary w-100" id="btn-follow"><%=  t(:follow) %></button>
+    <% else %>
+      <button type="button" style="display:none;" id="btn-unfollow" class="btn btn-light w-100"><%=  t(:unfollow) %></button>
+      <button type="button" class="btn btn-primary w-100" id="btn-follow"><%=  t(:follow) %></button>
+    <% end %> 
+  </div>
+<% end %>
