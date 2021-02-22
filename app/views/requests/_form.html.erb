@@ -1,0 +1,20 @@
+<%= form_for(@book, url: type==0 ? :requests : :request) do |f| %>
+  <%= render 'shared/error_messages', object: @book %>
+  <%= f.label t(:title) %>
+  <%= f.text_field :title, class: 'form-control mb-4', required:"required" %>
+  <%= f.label t(:author) %>
+  <%= f.text_field :author, class: 'form-control mb-4', required:"required" %>
+  <%= f.label t(:category) %>
+  <%= f.select :category_id, options_for_select(@categories), class:'form-control mb-2', required:"required" %>
+  <br />
+  <br />
+  <%= f.label t(:image)%>
+  <%= f.file_field :image, class: 'form-control-file mb-4', accept:'image/*'%>
+  <%= f.label t(:description) %>
+  <%= f.text_area :description, class: 'form-control mb-4', required:"required" %>
+  <%= f.label t(:published_time) %>
+  <%= f.date_field :published_time, class: 'form-control mb-4', required:"required" %>
+  <%= f.label t(:page_num) %>
+  <%= f.text_field :page_num, class: 'form-control', required:"required", data:{numeric: true}%>
+  <%= f.submit yield(:type_btn), class: "btn btn-primary btn-block mt-4 mb-4" %>
+<% end %>

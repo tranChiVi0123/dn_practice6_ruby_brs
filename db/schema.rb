@@ -41,8 +41,9 @@ ActiveRecord::Schema.define(version: 2021_02_02_080138) do
 
   create_table "notifications", force: :cascade do |t|
     t.integer "user_id"
-    t.string "type"
+    t.integer "book_id"
     t.text "content"
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

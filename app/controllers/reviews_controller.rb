@@ -56,6 +56,7 @@ class ReviewsController < ApplicationController
                                         comment_content: params[:content])
     if cmt
       ActionCable.server.broadcast "comments_channel",
+                                   type: :comment,
                                    content:  params[:content],
                                    user_id: current_user.id,
                                    user_name: current_user.name,
@@ -69,7 +70,8 @@ class ReviewsController < ApplicationController
                                       comment_id: params[:comment_id],
                                       reply_content: params[:content_reply])
     if rep
-      ActionCable.server.broadcast "reply_channel",
+      ActionCable.server.broadcast "comments_channel",
+                                   type: :reply,
                                    content: params[:content_reply],
                                    comment_id: rep.comment.id,
                                    user_id: rep.user.id,

@@ -15,8 +15,16 @@ module SessionsHelper
     current_user.nil?
   end
 
+  def is_admin?
+    current_user.role == "admin"
+  end
+
   def sign_out
     session.delete(:user_id)
     @current_user = nil
+  end
+
+  def check_notification
+    current_user.notifications.where(status: 0).any?
   end
 end

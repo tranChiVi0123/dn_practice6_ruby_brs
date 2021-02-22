@@ -4,13 +4,12 @@ module ApplicationCable
 
     def connect
       self.current_user = find_verfied_user
-      p current_user
     end
 
     protected
     def find_verfied_user
       user_id = request.session[:user_id] ||= nil
-      User.find_by(id: user_id) || reject_unauthorized_connection
+      # User.find_by(id: user_id) || reject_unauthorized_connection
     end
   end
 end

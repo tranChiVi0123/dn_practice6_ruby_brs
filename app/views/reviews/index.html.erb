@@ -1,7 +1,7 @@
 <%=provide(:title,t(:home))%>
 <div class="row">
   <div class="col-lg-8">
-    <h1>News Feed</h1>
+    <h1><%= t(:new_feed)%></h1>
     <div id="news-feed">
       <%= render @reviews %>
     </div>
@@ -28,7 +28,7 @@
 
     <!-- Categories Widget -->
     <div class="card my-4">
-      <h5 class="card-header">Categories</h5>
+      <h5 class="card-header"><%= t(:category)%></h5>
       <div class="card-body">
         <div class="row">
           <div class="col-lg-6">

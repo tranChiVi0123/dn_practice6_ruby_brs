@@ -1,0 +1,60 @@
+<%provide(:title, t(:control_request))%>
+<%= will_paginate @requests %>
+<div class="table-responsive mb-5 pb-5">
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row mt-2 mb-3">
+        <div class="col-sm-8">
+          <h2><%= t(:manage)%> <b><%= t(:book) %></b></h2>
+        </div>
+        <div class="col-sm-4">
+          <%= link_to new_admin_book_path, class: "btn btn-success" do%>
+            <i class="fas fa-plus"></i> <span><%= t(:create) %></span>
+          <% end %>
+          <a href="" class="btn btn-danger" data-toggle="modal"><i class="fas fa-trash"></i> <span><%= t(:delete) %></span></a>
+        </div>
+      </div>
+    </div>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Image</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Published time</th>
+          <th>Page Num</th>
+          <th>Status</th>
+          <th>-</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @requests.each do |req| %>
+        <% book = JSON.parse(req.request_content, object_class: Book) %>
+        <tr>
+          <td><%= req.user.name %></td>
+          <td><img src="/res/<%=book.image%>" alt="IMG" width="100px" height="128px"></td>
+          <td><%= book.title %></td>
+          <td><%= book.author %></td>
+          <td><%= book.description.slice(0,10) %>...</td>
+          <td><%= book.category.name %></td>
+          <td><%= book.published_time %></td>
+          <td><%= book.page_num %></td>
+          <td><%= req.status %></td>
+          <td>
+            <% if req.status == "processing" %>
+              <button type="button" class="btn btn-success btn-accept-req" id="<%= req.id %>" name="btn-accept-req-<%= req.id %>"><%= t(:accept) %></button>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="pagination">
+      <%= will_paginate @requests %>
+    </div>
+    </div>
+  </div>
+</div>
